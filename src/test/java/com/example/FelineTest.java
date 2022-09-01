@@ -1,26 +1,38 @@
-import com.example.Feline;
+package com.example;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
 
     @Mock
     Feline feline;
+
     @Test
-    public void eatMeatShouldReturnPredatorFood() throws Exception {
+    public void eatMeat_ShouldReturnList() throws Exception {
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.eatMeat()).thenReturn(expected);
-        Feline feline1 = new Feline();
-        List<String> actual = feline1.eatMeat();
+        List<String> actual = feline.eatMeat();
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void getFamily_ShouldReturnString() {
+    }
+    @Test
+    public void getKittens_ShouldReturnInt() {
+        feline.getKittens();
+        Mockito.verify(feline).getKittens();
+
+    }
 }
