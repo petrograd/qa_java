@@ -43,7 +43,7 @@ public class LionTest {
     }
 
     @Test
-    public void catchExceptionFromLionConstruction() {
+    public void catchExceptionFromLionConstructor() {
         Exception exception = new Exception("Используйте допустимые значения пола животного - самей или самка");
         try {
             Lion lion = new Lion("Атлантиус", feline);
