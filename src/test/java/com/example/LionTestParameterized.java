@@ -13,7 +13,7 @@ public class LionTestParameterized {
     @Mock
     Feline feline;
     //не делал @RunWith(MockitoJUnitRunner.class)
-    //а почему-то работает
+    //а почему-то работает?
 
     private final String sex;
     private final boolean expected;

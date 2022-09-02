@@ -24,6 +24,13 @@ public class FelineTest {
     }
 
     @Test
+    public void eatMeat_ReturnListOfPredatorsFood_WithoutMocking() throws Exception {
+        Feline feline = new Feline();
+        List<String> expected = List.of("Животные", "Птицы", "Рыба");
+        List<String> actual = feline.eatMeat();
+        assertEquals(expected, actual);
+    }
+    @Test
     public void getFamily_ShouldReturnStringFeline() {
         Feline feline = new Feline();
         String expected = "Кошачьи";

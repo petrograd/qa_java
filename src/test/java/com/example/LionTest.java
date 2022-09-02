@@ -2,7 +2,6 @@ package com.example;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -11,6 +10,9 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+
+//? Параметризованный тест вынесен в отдельный класс LionTestParameterized,
+// но Jacoco при расчете % покрытия их почему-то не увидел? ;)
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
     @Mock
@@ -26,8 +28,8 @@ public class LionTest {
     }
     @Test
     public void doesHaveMane_ShouldReturnTrue() throws Exception {
-        boolean expected = true;
-        Lion lion = new Lion("Самец", feline);
+        boolean expected = false;
+        Lion lion = new Lion("Самка", feline);
         boolean actual = lion.doesHaveMane();
         assertEquals(expected, actual);
     }
@@ -39,4 +41,15 @@ public class LionTest {
         List<String> actual = lion.getFood();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void catchExceptionFromLionConstruction() {
+        Exception exception = new Exception("Используйте допустимые значения пола животного - самей или самка");
+        try {
+            Lion lion = new Lion("Атлантиус", feline);
+        } catch (Exception e) {
+            assertEquals(exception.getMessage(), e.getMessage());
+        }
+    }
+
 }

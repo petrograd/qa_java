@@ -22,7 +22,7 @@ public class CatTest {
         assertEquals(expected, actual);
     }
     @Test
-    public void getFood() throws Exception {
+    public void getFood_ShouldReturnListOfPredatorsFood() throws Exception {
         Cat cat = new Cat(feline);
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(cat.predator.eatMeat()).thenReturn(expected);
